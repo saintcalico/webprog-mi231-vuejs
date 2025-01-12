@@ -2,7 +2,8 @@
   const app = Vue.createApp({
    data() {
     return {
-     message: "Hello World!"
+     message: "Hello WEBPROG MI231 Nation!",
+      vueClass: "pinkBG"
     }
    }
   })
