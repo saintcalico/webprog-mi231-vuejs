@@ -20,7 +20,7 @@
   
   <script setup>
   import { ref } from 'vue';
-  import { createClient } from '../lib/supabaseClient';
+  import { createClient } from '@supabase/supabase-js';
   
   const name = ref('');
   const comment = ref('');
