@@ -10,7 +10,7 @@
 <style>
     #app > div{
         border: dashed #000000 1px;
-        display:inline-block
+        display:inline-block;
         margin:10px;
         padding:10px;
         background-color: #90EE90
@@ -38,7 +38,7 @@
 <style>
     #app > div{
         border: dashed #000000 1px;
-        display:inline-block
+        display:inline-block;
         margin:10px;
         padding:10px;
         background-color: #90EE90
