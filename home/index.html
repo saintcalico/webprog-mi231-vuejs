@@ -1,95 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Profile Web Page</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/pink.css">
-    <link rel="stylesheet" href="css/images.css">
-     <link rel="stylesheet" href="css/shopping.css">
+    <title>website</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1 data-text="HI IM FEL">HI IM FEL</h1>
-    <div class="container about-me">
-        <img class="profile-image" src="https://raw.githubusercontent.com/saintcalico/webprogMI231-personal-website/main/home/fel1.jpg" alt="Feliz Salting">
-        <h2>About Me</h2>
-        <div class="content">
-            <p>
-                I'm Feliz Salting, a 2nd year BSIT-MI student in Asia Pacific College. 
-                I'm also an external relations executive director in APC-Microsoft Community. 
-                For more personal info, I have a pet dog named Jake even though she's a girl. 
-                I'm also an only child with two loving parents.
-            </p>
-            <h3>Education and Achievements | Additional Info | IT Experience | Picture Gallery</h3>
+        </div>
+        <div class="center-container">
+            <img src="https://raw.githubusercontent.com/saintcalico/webprogMI231-personal-website/midterm_draft/home/pingu.png" alt="Centered PNG" class="center-image">
+            
+        <h1>HI <br> I'M FELIZ!</h1>
+    
+        <div class="folder-content-container">
+            <div id="about" class="folder-content">
+                <p>I'm an aspiring software engineer currently studying in Asia Pacific College, enrolled in an undergrad program which is Bachelor of Science in Information Technology with a specialization in Internet and Mobile Technologies.<br>
+                Random facts about me: I have a dog with a human name, I'm an only child  </p>
+            </div>
+            <div id="it-experience" class="folder-content">
+                <li>I previously worked on "CropSurplus" with my colleague Isaac Estabillo, it's an e-commerce app for overproduced goods. </li>
+                <li>I also worked on "FurBnB" with my colleagues Lalainne Andaya, Atasha Doria, and Michelle Pineda, it's an app for booking pet services </li>
+            </div>
+            <div id="education" class="folder-content">
+                <li>Dean's Lister (A.Y. 2023-2024)</li>
+                <li>Graduated With Honors-Pasay City National Science High School(A.Y. 2022-2023)</li>
+            </div>
+            <div id="interests" class="folder-content">
+                <li>I'm interested in films, you can add me on Letterboxd "ihatefilmsboo.</li>
+                <li>I'm also interested in books, add me on goodreads!</li>
+            </div>
+            <div id="gallery" class="folder-content">
+                <div id="app">
+                    <div class="gallery-container">
+                      <figure v-for="photo in photos" :key="photo.name">
+                        <img :src="photo.url" :alt="photo.name">
+                        <figcaption>{{ photo.name }}</figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+                <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+                <script src="js/gallery.js"></script>
+            </div>
+            <div id="goals" class="folder-content">
+                <strong>Goals</strong>
+                <li>My goal is to literally just get through my classes at this point. For now I don't have a long term goal.</li>
+                <strong> References: </strong>
+                <li>https://www.w3schools.com/vue/</li> 
+                <li>https://www.w3schools.com/js/js_functions.asp</li>
+            <strong>AI generation screenshots:</strong> 
+            </div>
+            <div id="contact" class="folder-content">
+                <p> Contact Me!.</p>
+
+                <form @submit.prevent="addEntry">
+                    <div>
+                        <p>
+                            Your Name: <br>
+                            <input type="text" v-model="name" placeholder="Enter your name" required />
+                        </p>
+                        <p>
+                            What are your thoughts about this website <br>
+                            <input type="text" v-model="message" placeholder="Enter your thoughts and opinion" required />
+                        </p>
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+         
+                <p v-if="confirmationMessage" class="confirmation"></p>
+            </div>
+        </div>
+        
+        <div class="folders left">
+            <div class="folder" onclick="showContent('about')">
+                <img src="https://raw.githubusercontent.com/saintcalico/webprogMI231-personal-website/midterm_draft/home/file.png" alt="Folder"> About me
+            </div>
+            <div class="folder" onclick="showContent('it-experience')">
+                <img src="https://raw.githubusercontent.com/saintcalico/webprogMI231-personal-website/midterm_draft/home/file.png" alt="Folder"> IT experience
+            </div>
+            <div class="folder" onclick="showContent('education')">
+                <img src="https://raw.githubusercontent.com/saintcalico/webprogMI231-personal-website/midterm_draft/home/file.png" alt="Folder"> Education
+            </div>
+            <div class="folder" onclick="showContent('interests')">
+                <img src="https://raw.githubusercontent.com/saintcalico/webprogMI231-personal-website/midterm_draft/home/file.png" alt="Folder"> Interests
+            </div>
+        </div>
+        <div class="folders right">
+            <div class="folder" onclick="showContent('gallery')">
+                <img src="https://raw.githubusercontent.com/saintcalico/webprogMI231-personal-website/midterm_draft/home/file.png" alt="Folder"> Picture Gallery
+            </div>
+            <div class="folder" onclick="showContent('goals')">
+                <img src="https://raw.githubusercontent.com/saintcalico/webprogMI231-personal-website/midterm_draft/home/file.png" alt="Folder"> Goals and References
+            </div>
+            <div class="folder" onclick="showContent('contact')">
+                <img src="https://raw.githubusercontent.com/saintcalico/webprogMI231-personal-website/midterm_draft/home/file.png" alt="Folder"> Contact me
+            </div>
         </div>
     </div>
-
-
-<div id="app">
-  {{ message }} <br>
-  {{'Random number: ' + Math.ceil(Math.random()*6) }}
-  <div v-bind:class="vueClass">This element is bound to the "pinkBG" class.</div>
-
-</div>
-    <div id="app2">
-  <div>
-    <figure v-for="x in manyFoods">
-      <img v-bind:src="x.url">
-      <figcaption>{{ x.name }}</figcaption>
-    </figure>
-  </div>
-</div>
-
-<div id="app3">
-  <form v-on:submit.prevent="addItem">
-    <p>
-      What do you need? <br>
-      <input type="text" required placeholder="item name.." v-model="itemName">
-    </p>
-    <p>
-      How many? <br>
-      <input type="number" placeholder="number of items.." v-model="itemNumber">
-    </p>
-    <p>
-      Important?
-      <label>
-        <input type="checkbox" v-model="itemImportant">
-        {{ itemImportant }}
-      </label>
-    </p>
-    <button type="submit">Add item</button>
-  </form>
-  <br>
-  <hr>
-
-  <div>
-    <p><strong>Shopping list:</strong></p>
-    <ul id="ulToFind">
-      <li 
-        v-for="item in shoppingList" 
-        v-bind:class="{ impClass: item.important }"
-        v-on:click="item.found=!item.found"
-        v-show="!item.found">
-          {{ item.name }}, {{ item.number}}
-      </li>
-    </ul>
-    <ul id="ulFound">
-      <li 
-        v-for="item in shoppingList" 
-        v-bind:class="{ impClass: item.important }"
-        v-on:click="item.found=!item.found"
-        v-show="item.found">
-          {{ item.name }}, {{ item.number}}
-      </li>
-    </ul>
-  </div>
-</div>
-
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script src="js/vue.js"></script>
-<script src="js/images.js"></script>
-<script src="js/shopping.js"></script>
-
+        
+    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/guestbook.js"></script>
 </body>
 </html>
