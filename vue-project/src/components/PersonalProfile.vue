@@ -173,6 +173,7 @@
   </script>
   
   <style scoped>
-  @import "../css/styles.css";
+  @import "@/assets/styles.css";
   </style>
+  
   
