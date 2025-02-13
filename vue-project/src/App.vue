@@ -3,6 +3,7 @@
   <food-item/>
   <food-item2/> <br>
   <food-item/> <br>
+  <rest-API><</rest-API>
   <personal-profile/><br>
 </template>
 
